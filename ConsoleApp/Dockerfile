@@ -9,3 +9,6 @@ COPY bin/Debug/netcoreapp3.1/publish .
 
 #setting what to launch
 ENTRYPOINT ["dotnet", "ConsoleApp.dll"]
+
+#docker cp stop $(docker ps -q --filter="NAME=consoleapp"):/app/stop
+#docker exec -it consoleapp  touch /app/stop

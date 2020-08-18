@@ -1,5 +1,9 @@
 version: "3.8"
 
+volumes: 
+    hello:
+        external: true
+
 services: 
     db:
         image: mysql:5.6
@@ -17,10 +21,13 @@ services:
 
     console: 
         build: ConsoleApp/. #build Docker file from there
-    
+        volumes: 
+            - hello:/hello:rw
     webapi:
         depends_on:
             - db
         build: WebApplication/.
         ports: 
             - "5000:5000"  #5000 port here and 5000 on the webapi   
+        volumes: 
+            - hello:/hello:rw  
