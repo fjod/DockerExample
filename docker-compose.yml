@@ -1,5 +1,7 @@
 version: "3.8"
 
+#volume must be created beforehand with command like:
+#docker volume create hello
 volumes: 
     hello:
         external: true
